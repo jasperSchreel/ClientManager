@@ -17,21 +17,23 @@
             active-class="deep-purple--text text--accent-4"
           >
             <v-list-item>
-              <v-list-item-title v-on:click="goToRoute('/')">Home</v-list-item-title>
+              <v-list-item-title v-on:click="goToRoute('/')"
+                >Home</v-list-item-title
+              >
             </v-list-item>
 
             <v-list-item>
-              <v-list-item-title v-on:click="goToRoute('/patient/list')"
+              <v-list-item-title v-on:click="goToRoute('/list')"
                 >Patient List</v-list-item-title
               >
             </v-list-item>
 
             <v-list-item>
-              <v-list-item-title>Fizz</v-list-item-title>
+              <v-list-item-title v-on:click="goToRoute('/login')">Login</v-list-item-title>
             </v-list-item>
 
             <v-list-item>
-              <v-list-item-title>Buzz</v-list-item-title>
+              <v-list-item-title v-on:click="logout()">Logout</v-list-item-title>
             </v-list-item>
           </v-list-item-group>
         </v-list>
@@ -45,22 +47,27 @@
 </template>
 
 <script>
+import Header from "./components/Header.vue";
 /* eslint-disable */
 
 export default {
+  components: { Header },
   name: "App",
   data: () => ({
     drawer: false,
     group: null,
     title: "Home Page",
   }),
-
+  mounted: function () {},
   methods: {
     viewPatientList() {
       this.$router.push("/patient/list");
     },
     goToRoute(link) {
       this.$router.push(link);
+    },
+    logout() {
+      this.$store.dispatch('logout')
     }
   },
 

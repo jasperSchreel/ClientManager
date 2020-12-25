@@ -10,10 +10,16 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "@firebase/auth": "^0.16.1",
+    "@firebase/firestore": "^2.1.1",
+    "firebase": "^8.2.1",
+    "openid-client": "^4.2.2",
     "vue": "^2.5.2",
     "vue-material-design-icons": "^4.11.0",
     "vue-router": "^3.0.1",
-    "vuetify": "^2.3.21"
+    "vuelidate": "^0.7.6",
+    "vuetify": "^2.3.21",
+    "vuex": "^3.6.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

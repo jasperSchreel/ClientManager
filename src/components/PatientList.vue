@@ -1,32 +1,37 @@
 <template>
   <v-container>
     <ul>
-  <li v-for="item in patients" :key="item.label">
-    <patient-card :label="item.label" :id="item.id"></patient-card>
+  <li v-for="patient in patients" :key="patient.id">
+    <patient-card :patient="patient"></patient-card>
   </li>
 </ul>
   </v-container>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import PatientCard from './PatientCard.vue'
 
 export default {
   name: 'PatientList',
+  components: {
+    PatientCard
+  },
   data () {
     return {
       test: 'hi',
-      patients: [
-        { id: 1, label: 'Mark', done: false },
-        { id: 2, label: 'Isabelle', done: true },
-        { id: 3, label: 'Luoise', done: true },
-        { id: 4, label: 'Dirk', done: false }
+      patientsPlaceholder: 
+      [
+        { id: 1, name: 'Mark', done: false },
+        { id: 2, name: 'Isabelle', done: true },
+        { id: 3, name: 'Louise', done: true },
+        { id: 4, name: 'Dirk', done: false }
       ]
     }
   },
-  components: {
-    PatientCard
-  }
+   computed: {
+    ...mapState(['userProfile', 'patients'])
+  },
 }
 </script>
 

@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import vuetify from './plugins/vuetify'
+import { auth } from './plugins/firebase'
+import store from './store'
 
 Vue.config.productionTip = false
 
@@ -12,5 +14,7 @@ new Vue({
   components: { App },
   template: '<App/>',
   router,
-  vuetify
+  vuetify,
+  auth,
+  store
 }).$mount('#app')
